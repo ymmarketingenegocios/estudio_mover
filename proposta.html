@@ -1,1 +1,504 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Proposta — Nadja | YM Marketing & Negócios</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'Montserrat', sans-serif;
+    background: #fff;
+    color: #1a2332;
+    -webkit-font-smoothing: antialiased;
+  }
 
+  /* ── COVER ── */
+  .cover {
+    min-height: 100vh;
+    background: #0d1b2e;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 48px;
+    position: relative;
+    overflow: hidden;
+  }
+  .cover::before {
+    content: '';
+    position: absolute;
+    right: -120px;
+    bottom: -120px;
+    width: 500px;
+    height: 500px;
+    border-radius: 50%;
+    border: 1px solid rgba(255,255,255,0.05);
+    pointer-events: none;
+  }
+  .cover::after {
+    content: '';
+    position: absolute;
+    right: 20px;
+    bottom: 20px;
+    width: 360px;
+    height: 360px;
+    border-radius: 50%;
+    border: 1px solid rgba(255,255,255,0.04);
+    pointer-events: none;
+  }
+  .cover-logo {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.3);
+  }
+  .cover-main {
+    position: relative;
+    z-index: 1;
+  }
+  .cover-tag {
+    display: inline-block;
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: #c8a96e;
+    margin-bottom: 28px;
+  }
+  .cover-service {
+    font-size: clamp(28px, 5vw, 50px);
+    font-weight: 800;
+    color: #fff;
+    letter-spacing: -0.03em;
+    line-height: 1.1;
+    margin-bottom: 20px;
+  }
+  .cover-service span {
+    display: block;
+    font-weight: 300;
+    font-size: 0.55em;
+    letter-spacing: 0em;
+    color: rgba(255,255,255,0.4);
+    margin-bottom: 4px;
+  }
+  .cover-sub {
+    font-size: 13px;
+    font-weight: 400;
+    color: rgba(255,255,255,0.4);
+    max-width: 320px;
+    line-height: 1.6;
+  }
+  .cover-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    position: relative;
+    z-index: 1;
+    padding-top: 40px;
+    border-top: 1px solid rgba(255,255,255,0.08);
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+  .cover-client-label {
+    font-size: 9px;
+    font-weight: 600;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.25);
+    margin-bottom: 6px;
+  }
+  .cover-client-name {
+    font-size: 20px;
+    font-weight: 700;
+    color: #fff;
+    letter-spacing: -0.01em;
+  }
+  .cover-client-biz {
+    font-size: 12px;
+    color: rgba(255,255,255,0.35);
+    margin-top: 3px;
+  }
+  .cover-date {
+    font-size: 10px;
+    color: rgba(255,255,255,0.2);
+    letter-spacing: 0.1em;
+    text-align: right;
+  }
+
+  /* ── WRAPPER ── */
+  .wrap {
+    max-width: 820px;
+    margin: 0 auto;
+    padding: 0 32px;
+  }
+
+  /* ── SECTION ── */
+  .sec {
+    padding: 72px 0;
+  }
+  .sec-label {
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: #2563a8;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .sec-label::before {
+    content: '';
+    width: 20px;
+    height: 2px;
+    background: #2563a8;
+    flex-shrink: 0;
+  }
+  .sec-title {
+    font-size: clamp(20px, 3vw, 28px);
+    font-weight: 700;
+    color: #0d1b2e;
+    letter-spacing: -0.02em;
+    margin-bottom: 36px;
+    line-height: 1.2;
+  }
+
+  /* ── INCLUDES GRID ── */
+  .includes-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2px;
+    background: #e8edf3;
+    border-radius: 10px;
+    overflow: hidden;
+  }
+  .inc-card {
+    background: #fff;
+    padding: 24px 26px;
+    transition: background 0.15s;
+  }
+  .inc-card:hover { background: #f7f9fc; }
+  .inc-icon {
+    font-size: 18px;
+    margin-bottom: 10px;
+  }
+  .inc-title {
+    font-size: 13px;
+    font-weight: 700;
+    color: #0d1b2e;
+    margin-bottom: 5px;
+  }
+  .inc-desc {
+    font-size: 11.5px;
+    color: #6b7f96;
+    line-height: 1.55;
+  }
+
+  /* ── PRICING ── */
+  .pricing-block {
+    background: #0d1b2e;
+    border-radius: 12px;
+    overflow: hidden;
+  }
+  .pricing-top {
+    padding: 40px 44px 32px;
+    border-bottom: 1px solid rgba(255,255,255,0.07);
+  }
+  .pricing-service-tag {
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.3);
+    margin-bottom: 8px;
+  }
+  .pricing-service-name {
+    font-size: 18px;
+    font-weight: 700;
+    color: #fff;
+    letter-spacing: -0.01em;
+  }
+  .pricing-rows {
+    padding: 28px 44px 36px;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+  .p-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    padding: 13px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+  }
+  .p-row:last-child { border-bottom: none; }
+  .p-label {
+    font-size: 12px;
+    color: rgba(255,255,255,0.4);
+  }
+  .p-val {
+    font-size: 14px;
+    font-weight: 600;
+    color: rgba(255,255,255,0.8);
+  }
+  .p-val.strike {
+    text-decoration: line-through;
+    font-weight: 400;
+    color: rgba(255,255,255,0.25);
+    font-size: 13px;
+  }
+  .p-val.off {
+    color: #4ade80;
+  }
+  .p-val.final {
+    font-size: 22px;
+    font-weight: 800;
+    color: #fff;
+    letter-spacing: -0.02em;
+  }
+  .pricing-parcel {
+    padding: 0 44px 32px;
+    font-size: 11px;
+    color: rgba(255,255,255,0.2);
+  }
+  .pricing-note {
+    margin: 0 44px 32px;
+    padding: 16px 20px;
+    background: rgba(200,169,110,0.1);
+    border-left: 2px solid #c8a96e;
+    border-radius: 0 4px 4px 0;
+  }
+  .pricing-note p {
+    font-size: 11.5px;
+    color: rgba(200,169,110,0.85);
+    line-height: 1.6;
+  }
+
+  /* ── CLOSING ── */
+  .closing-sec {
+    padding: 72px 0 80px;
+    background: #f7f9fc;
+  }
+  .closing-inner {
+    max-width: 820px;
+    margin: 0 auto;
+    padding: 0 32px;
+    text-align: center;
+  }
+  .closing-text {
+    font-size: 15px;
+    font-weight: 400;
+    color: #4a5f78;
+    line-height: 1.75;
+    max-width: 540px;
+    margin: 0 auto 36px;
+  }
+  .cta-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: #0d1b2e;
+    color: #fff;
+    text-decoration: none;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 18px 36px;
+    border-radius: 3px;
+    transition: background 0.2s, transform 0.15s;
+  }
+  .cta-btn:hover {
+    background: #1a3a5c;
+    transform: translateY(-1px);
+  }
+  .cta-arrow {
+    font-size: 16px;
+    transition: transform 0.2s;
+  }
+  .cta-btn:hover .cta-arrow { transform: translateX(3px); }
+  .cta-sub {
+    margin-top: 14px;
+    font-size: 10px;
+    color: #a0aeba;
+    letter-spacing: 0.08em;
+  }
+
+  /* ── FOOTER ── */
+  .footer {
+    background: #070e18;
+    padding: 28px 32px;
+    text-align: center;
+  }
+  .footer p {
+    font-size: 10px;
+    color: rgba(255,255,255,0.15);
+    letter-spacing: 0.08em;
+    line-height: 1.8;
+  }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 600px) {
+    .cover { padding: 32px 28px; }
+    .wrap { padding: 0 20px; }
+    .includes-grid { grid-template-columns: 1fr; }
+    .pricing-top, .pricing-rows, .pricing-parcel, .pricing-note { padding-left: 24px; padding-right: 24px; }
+    .closing-inner { padding: 0 20px; }
+    .sec { padding: 56px 0; }
+  }
+</style>
+</head>
+<body>
+
+<!-- CAPA -->
+<section class="cover">
+  <div class="cover-logo">YM Marketing &amp; Negócios</div>
+
+  <div class="cover-main">
+    <div class="cover-tag">Proposta Comercial · 2026</div>
+    <h1 class="cover-service">
+      <span>Instagram</span>
+      Profissional<br>Completo
+    </h1>
+    <p class="cover-sub">Estruturação profissional da presença digital do Estúdio Mover.</p>
+  </div>
+
+  <div class="cover-footer">
+    <div>
+      <div class="cover-client-label">Preparada para</div>
+      <div class="cover-client-name">Nadja</div>
+      <div class="cover-client-biz">Estúdio Mover Pilates e Fisioterapia</div>
+    </div>
+    <div class="cover-date">
+      Yasmin Menezes<br>
+      Maio · 2026
+    </div>
+  </div>
+</section>
+
+
+<!-- O QUE ESTÁ INCLUSO -->
+<section class="sec">
+  <div class="wrap">
+    <div class="sec-label">O que está incluso</div>
+    <h2 class="sec-title">Tudo que você recebe</h2>
+
+    <div class="includes-grid">
+
+      <div class="inc-card">
+        <div class="inc-icon">🎯</div>
+        <div class="inc-title">Posicionamento do perfil</div>
+        <div class="inc-desc">Definição clara de como o Estúdio Mover deve ser percebido no Instagram.</div>
+      </div>
+
+      <div class="inc-card">
+        <div class="inc-icon">✍️</div>
+        <div class="inc-title">Bio estratégica</div>
+        <div class="inc-desc">Reescrita com nicho, diferencial e chamada para agendamento.</div>
+      </div>
+
+      <div class="inc-card">
+        <div class="inc-icon">📌</div>
+        <div class="inc-title">Organização dos destaques</div>
+        <div class="inc-desc">Estrutura e capas dos destaques na identidade visual do estúdio.</div>
+      </div>
+
+      <div class="inc-card">
+        <div class="inc-icon">🎨</div>
+        <div class="inc-title">Identidade visual</div>
+        <div class="inc-desc">Paleta de cores, tipografia e padrão estético definidos para o perfil.</div>
+      </div>
+
+      <div class="inc-card">
+        <div class="inc-icon">🖼️</div>
+        <div class="inc-title">Templates editáveis</div>
+        <div class="inc-desc">Modelos prontos no Canva para os principais formatos de post.</div>
+      </div>
+
+      <div class="inc-card">
+        <div class="inc-icon">📋</div>
+        <div class="inc-title">Estrutura de conteúdo</div>
+        <div class="inc-desc">Pilares editoriais definidos para guiar o que e como publicar.</div>
+      </div>
+
+      <div class="inc-card">
+        <div class="inc-icon">📅</div>
+        <div class="inc-title">Calendário inicial</div>
+        <div class="inc-desc">Planejamento do primeiro mês com ideias de posts prontas para usar.</div>
+      </div>
+
+      <div class="inc-card">
+        <div class="inc-icon">💡</div>
+        <div class="inc-title">Direcionamento estratégico</div>
+        <div class="inc-desc">Reunião de entrega com orientações práticas para manter o perfil ativo.</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- INVESTIMENTO -->
+<section class="sec" style="padding-top:0;background:#fff;">
+  <div class="wrap">
+    <div class="sec-label">Investimento</div>
+    <h2 class="sec-title">Condição especial para o<br>Estúdio Mover</h2>
+
+    <div class="pricing-block">
+      <div class="pricing-top">
+        <div class="pricing-service-tag">Serviço</div>
+        <div class="pricing-service-name">Instagram Profissional Completo</div>
+      </div>
+
+      <div class="pricing-rows">
+        <div class="p-row">
+          <div class="p-label">Valor oficial</div>
+          <div class="p-val strike">R$ 597,00</div>
+        </div>
+        <div class="p-row">
+          <div class="p-label">Condição especial</div>
+          <div class="p-val off">10% OFF</div>
+        </div>
+        <div class="p-row">
+          <div class="p-label">Seu investimento</div>
+          <div class="p-val final">R$ 537,30</div>
+        </div>
+      </div>
+
+      <div class="pricing-parcel">ou em até 3× de R$ 179,10 sem juros</div>
+
+      <div class="pricing-note">
+        <p>Condição exclusiva para quem acompanhou a YM desde o início da metodologia. Não se repete em contratações futuras.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- FECHAMENTO -->
+<section class="closing-sec">
+  <div class="closing-inner">
+    <p class="closing-text">
+      Agora que a estrutura da YM está oficialmente organizada, consegui transformar toda a análise em uma entrega clara, prática e profissional para o Estúdio Mover.
+    </p>
+    <a href="https://wa.me/5531975073862?text=Oi%20Yasmin!%20Quero%20começar%20o%20Instagram%20Profissional%20Completo." class="cta-btn">
+      Quero começar <span class="cta-arrow">→</span>
+    </a>
+    <p class="cta-sub">Proposta válida até 31/05/2026</p>
+  </div>
+</section>
+
+
+<footer class="footer">
+  <p>
+    YM Marketing &amp; Negócios · Yasmin Menezes<br>
+    Proposta elaborada exclusivamente para Nadja · Estúdio Mover Pilates e Fisioterapia · Confidencial
+  </p>
+</footer>
+
+</body>
+</html>
